@@ -13,6 +13,7 @@ Build a local GAIA agent that classifies finance headlines as good, neutral, or 
 - Labels: good, neutral, bad
 
 ## Results
+- Baseline: .667
 - Accuracy: 0.893/1
 
 ## Confusion matrix summary

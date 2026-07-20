@@ -15,18 +15,18 @@ The reasoning of why I did this project is that I have a difficult time reading 
 1. Open the project in VS Code
 2. Make sure your GAIA environment is set up (activate virual enviornment, activate GAIA & Lemonade)
 3. Run the agent script
-4. Enter the path to your text file containing the headlines
-5. Enter how many headlines you want to sample
+4. Enter the URL to the headline you want to test
 
 ## Output
 The script prints each selected headline and the agent’s answer in the terminal in one word: good, neutral, or bad.
 
-## What I Learned
+## Errors
+After reviewing the code, I realized that the clean_label() function returned anything the agent didn't know as neutral. Therefore, the neutral number could be inflated and can influence any other results. This has been updated so errors will return as "Unknown".
 
+## What I Learned
 From this project, I learned how to apply the basics of GAIA to make something that can be realistically used. I learned how to create virtual enviornments, Python formatting and classes, and how to set models for the agent to default to using. I also learned parsing, different encodings(utf-8, latin-1) and much more.
 
 ## What I Would Do Next
-
 With this, I think it would be a good idea to replicate a Perplexity Task. I would have it automatically open up with my computer, pull the latest news from the internet, depict whether the news is good, bad, or neutral, and report back.
 
 ## Notes

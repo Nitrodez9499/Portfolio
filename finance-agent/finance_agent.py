@@ -11,7 +11,10 @@ class FinanceAgent(Agent):
         return "Classify finance headlines as good, neutral, or bad. Return exactly one word."
 
     def _register_tools(self):
-        pass
+        @self.register_tool("process_query")
+        
+        def process_query(query):
+            return self._process_query(query)
 
 def clean_label(text):
     text = str(text).strip().lower()
@@ -21,7 +24,7 @@ def clean_label(text):
         return "neutral"
     if "bad" in text:
         return "bad"
-    return "neutral"
+    return "unknown"
 
 def get_headline(url):
     req = Request(url, headers={"User-Agent": "Mozilla/5.0"})
