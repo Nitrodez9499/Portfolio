@@ -7,11 +7,9 @@ This project uses a local GAIA agent to classify finance headlines as **good**, 
 The reasoning of why I did this project is that I have a difficult time reading the news as a whole. I tend to always treat different news the wrong way, and it can be a struggle. This helps me solve that problem and makes it easier to understand. Also, I invest in the stock market, whether that's leaving money in an index fund or actively trading, so this tool could potentially help me make a decision on whether to buy, sell, or hold a trade. 
 
 ## What it does
-- Reads finance headlines from a text file
-- Randomly selects a sample of headlines
+- Accesses headlines from URL
 - Sends each headline to the agent
 - Prints the headline and the agent’s answer
-- Saves the results to a CSV file
 
 ## How to run
 1. Open the project in VS Code
@@ -21,11 +19,11 @@ The reasoning of why I did this project is that I have a difficult time reading 
 5. Enter how many headlines you want to sample
 
 ## Output
-The script prints each selected headline and the agent’s answer in the terminal. It also saves a CSV file with the headline and answer for each sampled line.
+The script prints each selected headline and the agent’s answer in the terminal in one word: good, neutral, or bad.
 
 ## What I Learned
 
-From this project, I learned how to apply the basics of GAIA to make something that can be realistically used. I learned how to create virtual enviornments, Python formatting and classes, and how to set models for the agent to default to using. 
+From this project, I learned how to apply the basics of GAIA to make something that can be realistically used. I learned how to create virtual enviornments, Python formatting and classes, and how to set models for the agent to default to using. I also learned parsing, different encodings(utf-8, latin-1) and much more.
 
 ## What I Would Do Next
 
