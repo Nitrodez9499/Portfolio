@@ -1,0 +1,6 @@
+Ture ->,Good,Neutral,Bad,
+Predicted,,,,
+Good,34,8,0,42
+Neutral,5,82,1,88
+Bad,0,2,18,
+,39,92,19,150
