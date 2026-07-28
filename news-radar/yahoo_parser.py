@@ -1,4 +1,3 @@
-from hmac import digest
 import sys
 sys.dont_write_bytecode = True
 import feedparser
@@ -35,7 +34,14 @@ class YahooNewsAgent(NewsClassifier):
     def classify_headlines(self, headlines):
         results = []
         for headline in headlines:
-            raw = self.process_query(f"Classify this headline as good, neutral, or bad: {headline}")
+            # Prefer the internal `_process_query` if available so the model
+            # doesn't try to call registered tools (like fetch_headlines_tool)
+            direct = getattr(self, "_process_query", None)
+            if callable(direct):
+                raw = direct(f"Classify this headline as good, neutral, or bad: {headline}")
+            else:
+                raw = self.process_query(f"Classify this headline as good, neutral, or bad: {headline}")
+
             raw = raw.get("result", raw) if isinstance(raw, dict) else raw
             label = clean_label(raw)
             results.append((headline, label))
@@ -84,6 +90,15 @@ if __name__ == "__main__":
 
     fetch_result = agent.process_query("Fetch the latest finance headlines from Yahoo Finance RSS.")
     headlines = extract_tool_headlines(fetch_result)
+
+    # If the tool extraction returned no headlines, loudly warn and fall back
+    # to a direct fetch to avoid producing an empty/"no news" digest.
+    if not headlines:
+        print("WARNING: No headlines returned from tool extraction. Falling back to direct fetch_headlines().")
+        try:
+            headlines = fetch_headlines(limit=20)
+        except Exception as e:
+            print(f"ERROR: Direct fetch_headlines() failed: {e}")
 
     results = agent.classify_headlines(headlines)
 
