@@ -7,7 +7,7 @@ from gaia.agents.base.agent import Agent
 
 class NewsClassifier(Agent):
     def __init__(self, **kwargs):
-        kwargs.setdefault("model_id", "Gemma-4-E4B-it-GGUF")
+        kwargs.setdefault("model_id", "Qwen3.5-35B-A3B-GGUF")
         super().__init__(**kwargs)
 
     def _get_system_prompt(self):
