@@ -57,7 +57,7 @@ News Radar runs classification through [AMD's GAIA](https://github.com/lemonade-
 lemonade-server pull Qwen3.5-35B-A3B-GGUF
 ```
 
-Sizing note: this model is ~20 GB. Make sure you've got comfortable headroom below your available GPU memory (or system RAM if running on CPU) — see Lemonade's own sizing guidance if you'd rather use a smaller model.
+Sizing note: this model is ~20 GB. Make sure you've got comfortable headroom below your available GPU memory (or system RAM if running on CPU) — see Lemonade's own sizing guidance if you'd rather use a smaller model. I recommend Gemma-4-E4B-it-GGUF for laptops.
 
 ## Usage
 
@@ -78,5 +78,5 @@ Set up via Windows Task Scheduler with a trigger of **"At log on"**, pointing at
 
 ## Notes
 
-- Classification is single-word sentiment on the headline text alone — it doesn't read the full article, so nuance (e.g., a bearish-sounding phrase inside an otherwise bullish story) can occasionally land on the "wrong" label.
+- Classification is single-word tone on the headline's text alone — it doesn't read the full article, so details (e.g., a bearish-sounding phrase inside an otherwise bullish story) can occasionally land on the "wrong" label.
 - The `unknown` count tracks how often the model doesn't return a clean one-word answer — a useful signal for how reliably a given model follows the format instruction.
